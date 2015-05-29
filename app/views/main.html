@@ -1,0 +1,198 @@
+<div class="row-fluid">
+
+    <h3>Enter Details</h3>
+
+    <div class="span5 noprint">
+        <form name="myform" class="form-horizontal" role="form">
+            <div class="control-group">
+                <label class="control-label" for="borrowerName">Name</label>
+                <div class="controls">
+                    <input type="text" id="borrowerName" name="borrowerName" placeholder="Enter Name" ng-model="borrower.name">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="amount">Amount</label>
+                <div class="controls">
+                    <input type="number" min="100" step="0.01" Required id="amount" placeholder="Enter Amount" ng-model="borrower.amount" pattern="[0-9\.]*">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="fromDate">From Date</label>
+                <div class="controls">
+                    <input type="date" ngRequired id="fromDate" Required placeholder="From Date" ng-model="borrower.fromDate">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" for="toDate">To Date</label>
+                <div class="controls">
+                    <input type="date" ngRequired id="toDate" Required placeholder="To Date" ng-model="borrower.toDate">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="interestMethod">Select Interest Method</label>
+                <div class="controls">
+                    <select ng-model="borrower.interestMethod">
+                        <option value="1" selected>Simple</option>
+                        <option value="2">Cumulative</option>
+                    </select>
+                </div>
+
+
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="interestRate">Interest per 100</label>
+                <div class="controls">
+                    <input type="number" min="0.5" max="10" step="0.25" Required id="interestRate" placeholder="Interest Rate" ng-model="borrower.interestRate" />
+                </div>
+
+            </div>
+            <div class="control-group" ng-show="borrower.interestMethod=='2'">
+                <label class="control-label" for="period">per</label>
+                <div class="controls">
+                    <input type="number" min="1" max="12" Required id="period" placeholder="select period" ng-model="borrower.period" />
+                    <label>Months</label>
+                </div>
+
+            </div>
+            <div class="control-group">
+                <button class="btn btn-primary" ng-click="calculate(borrower)" ng-disabled="myform.$invalid">Calculate</button>
+                <button class="btn" ng-click="reset()" ng-disabled="isUnchanged(borrower)">RESET</button>
+                <button class="btn btn-primary" ng-click="update(borrower)" ng-disabled="myform.$invalid" >SAVE</button>
+                <button class="btn" ng-click="print()" ng-disabled="myform.$invalid"> Print </button>
+            </div>
+        </form>
+    </div>
+    <div class="span4 offset2">
+        <!--<pre>form = {{borrower | json}}</pre>-->
+        <table class="table table-bordered">
+            <tbody>
+                <tr class="print">
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        {{borrower.name}}
+                    </td>
+                </tr>
+                <tr class="print">
+                    <td>
+                        Amount
+                    </td>
+                    <td>
+                        {{borrower.amount}}
+                    </td>
+                </tr>
+                <tr class="print">
+                    <td>
+                        From date
+                    </td>
+                    <td>
+                        {{borrower.fromDate | date:'dd-MMM-yyyy'}}
+                    </td>
+                </tr>
+                <tr class="print">
+                    <td>
+                        To date
+                    </td>
+                    <td>
+                        {{borrower.toDate | date:'dd-MMM-yyyy'}}
+                    </td>
+                </tr>
+                <tr class="print">
+                    <td>
+                        Interest
+                    </td>
+                    <td>
+                        Rs {{borrower.interestRate}} per 100
+                    </td>
+                </tr>
+                <tr class="print" ng-show="borrower.interestMethod==2">
+                    <td>
+                        Compounded
+                    </td>
+                    <td>
+                        yearly
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>
+                        Years
+                    </td>
+                    <td>
+                        {{duration.years}}
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>
+                        Months
+                    </td>
+                    <td>
+                        {{duration.months}}
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>
+                        Days
+                    </td>
+                    <td>
+                        {{duration.days}}
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>
+                        Interest
+                    </td>
+                    <td>
+                        {{duration.interest}}
+                    </td>
+                </tr>
+                <tr class="">
+                    <td>
+                        Amount
+                    </td>
+                    <td>
+                        {{(borrower.amount + duration.interest).toFixed(2)}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div class="row-fluid" style="display:none;">
+    <div class="span12">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Amount</td>
+                <td>Borrowed Date</td>
+                <td>Interest Rate</td>
+                <td>Interest Method</td>
+                </tr>
+        </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Name
+                    </td>
+                     <td>
+                        Name
+                    </td>
+                     <td>
+                        Name
+                    </td>
+                     <td>
+                        Name
+                    </td>
+                     <td>
+                        Name
+                    </td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

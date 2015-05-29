@@ -1,0 +1,70 @@
+$iconSpritePath: "../images/glyphicons-halflings.png";
+$iconWhiteSpritePath: "../images/glyphicons-halflings-white.png";
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic);
+
+@import "bootstrap-sass/lib/bootstrap";
+@import "bootstrap-sass/lib/responsive";
+
+/* Put your CSS here */
+html, body {
+  margin: 0 auto;
+}
+
+body {
+    background: #fafafa;
+    font-family: 'Libre Baskerville', serif, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background:url('../images/hd-view-of-ny-city-night_blur.jpg') no-repeat;
+    background-size:cover;
+    color:ffffff;
+    background-color: rgba(138, 145, 141, 0.43);
+
+}
+
+.container-fluid {
+    color:#FFF;
+}
+@media (max-width:480px) {
+    form {
+        padding:20px;
+    }
+}
+
+.hero-unit {
+    /*margin: 10px auto 0 auto;
+    font-size: 1em;
+    font-weight: 200;
+    line-height: 1em;*/
+    
+
+    /*border-radius: 6px;
+    padding: 1em;*/
+}
+/*
+.hero-unit h1 {
+    padding-bottom:1em;
+    font-size: 2em;
+    line-height: 1;
+    letter-spacing: -1px;
+}*/
+@media screen {
+    .print {
+        display:none;
+    }
+    .table-bordered {
+        border-collapse:collapse;
+    }
+    
+}
+
+@media print {
+    .btn {
+        display:none;
+    }
+    form {
+        display:none;
+    }
+
+}
+
+
+

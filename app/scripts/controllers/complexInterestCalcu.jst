@@ -1,0 +1,62 @@
+/*
+function calcComplexInt(amount, duration, intRate, period) {
+    var totalMonths, noOfPeriods, intRatePerPeriod, complexIntValue, simpleIntValue, totalIntValue;
+    /*
+   		years = 2, months = 10
+   		total months = 2*12 + 10 = 34
+  		period = 6
+  		effective no of periods = 34 - 34%6 = 30
+  		4 months have to calculate normal interest
+    */
+    /*
+    totalMonths = duration.years * 12 + duration.months;
+    noOfPeriods = (totalMonths - (totalMonths % period)) / period;
+    //if effective periods are greater than one then only calculate the complex interest otherwise simple interest
+    if (noOfPeriods !== 0) {
+        intRatePerPeriod = (intRate * period) / (12 * 100);
+        //Complex interest rate
+        complexIntValue = (amount * Math.pow((1 + (intRatePerPeriod)), noOfPeriods)) - amount;
+        console.log(complexIntValue);
+        simpleIntValue = calcSimpleInt(amount + complexIntValue, {
+            years: 0,
+            months: totalMonths % period,
+            days: duration.days
+        }, intRate);
+        //totalIntValue = simpleIntValue * $scope.duration.years + ((simpleIntValue * $scope.duration.months)/12) + (((simpleIntValue * $scope.duration.days)/12*30));
+
+    } else {
+        simpleIntValue = calcSimpleInt(amount, duration, period)
+    }
+    totalIntValue = amount + complexIntValue + simpleIntValue
+    return totalIntValue;
+    //
+}
+
+// > undefined
+
+function calcSimpleInt(amount, duration, intRate) {
+        var simpleIntValue, totalIntValue;
+        simpleIntValue = (amount * intRate) / 100;
+        console.log(simpleIntValue);
+        totalIntValue = simpleIntValue * duration.years + ((simpleIntValue * duration.months) / 12) + ((simpleIntValue * duration.days) / (12 * 30));
+        console.log(totalIntValue);
+        return totalIntValue;
+    }
+    // > undefined
+
+var duration = {
+        years: 1,
+        months: 0,
+        days: 17
+    },
+    amount = 25000,
+    intRate = 24,
+    period = 12;
+// > undefined
+console.log(calcComplexInt(amount, duration, intRate, period));
+// > 6000
+// > 7440
+// > 351.3333333333333
+// > 31351.333333333332
+// > undefined
+*/

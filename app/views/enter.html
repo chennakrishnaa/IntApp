@@ -1,0 +1,64 @@
+<div class="page-header">
+    <h1>Enter Details</h1>
+    <form name="form" class="form-horizontal" role="form">
+        <div class="control-group">
+            <label class="control-label" for="borrowerName">Name</label>
+            <div class="controls">
+                <input type="text" id="borrowerName" name="borrowerName" placeholder="Enter Name" ng-model="borrower.name">
+            </div>
+            <!--<div ng-show="form.borrowerName.$dirty && form.borrowerName.$invalid">Invalid:
+                <span ng-show="form.borrowerName.$error.required">Tell us your email.</span>
+            </div>-->
+        </div>
+        <!--<div class="control-group">
+            <label class="control-label" for="amount">Amount</label>
+            <div class="controls">
+                <input type="number" min="100" step="100" ngRequired id="amount" placeholder="Enter Amount" ng-model="borrower.amount">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="fromDate">From Date</label>
+            <div class="controls">
+                <input type="date" ngRequired id="fromDate" placeholder="From Date" ng-model="borrower.fromdate">
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="toDate">To Date</label>
+            <div class="controls">
+                <input type="date" ngRequired id="toDate" placeholder="To Date" ng-model="borrower.toDate">
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="interestMethod">Select Interest Method</label>
+            <div class="controls">
+                <select ng-model="borrower.interestMethod">
+                    <option value="simple" selected>Simple</option>
+                    <option value="complex">Complex</option>
+                </select>
+            </div>
+
+
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="interestRate">Interest Rate</label>
+            <div class="controls">
+                <input type="number" min="0" max="100" ngRequired id="interestRate" placeholder="Interest Rate" ng-model="borrower.interestRate" />
+            </div>
+           
+        </div>
+        <div class="control-group" ng-show="borrower.interestMethod=='complex'">
+        	<label class="control-label" for="period" >per</label>
+            <div class="controls">
+                <input type="number" min="1" max="12" ngRequired id="period" placeholder="select period" ng-model="borrower.period" />
+                <label >Months</label>
+            </div>
+
+        </div>-->
+        <div class="control-group">
+            <button ng-click="reset()" ng-disabled="isUnchanged(borrower)">RESET</button>
+            <button ng-click="update(borrower)" ng-disabled="form.$invalid || isUnchanged(borrower)">SAVE</button>
+        </div>
+    </form>
+    <pre>form = {{borrower | json}}</pre>
+</div>
